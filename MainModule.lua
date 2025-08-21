@@ -1,6 +1,8 @@
 local module = {}
 local vics = {}
 local p1 = game.Players.LocalPlayer
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 local wepdmgIds = {
     ["Old Axe"] = "1_" .. p1.UserId,
     ["Good Axe"] = "112_" .. p1.UserId,
@@ -40,7 +42,16 @@ function module:KillAura(dis)
 end
 function module:CheckStatus(s)
   if s == "Discontinued" then setclipboard("Discordlmao") p1:Kick("The Script Is Discontinued, Join Our Discord To know the problem")
-  elseif s == "Broken" then return
-  elseif s == "Detected" then return end
+  elseif s == "Broken" then
+	Notification:Notify(
+    {Title = "The Script have Bugs🐛", Description = "SOME OF THE FEATURES WILL CAUSE BUGS USE IT AT YOUR OWN RISK"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "default"}
+	)
+  elseif s == "Detected" then
+	Notification:Notify(
+    {Title = "The Script is Detected⚠️", Description = "USE IT ON YOUR OWN RISK"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "default"}
+	)
+  end
 end
 return module
