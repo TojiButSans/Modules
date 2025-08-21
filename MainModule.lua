@@ -11,6 +11,7 @@ local wepdmgIds = {
 local chars = workspace.Characters
 local items = workspace.Items
 local RE = ReplicatedStorage:WaitForChild("RemoteEvents")
+_G.status = "Discontinued"
 repeat wait() until game:IsLoaded()
 function module:CheckWep()
     for i, v in pairs(wepdmgIds) do
@@ -36,5 +37,10 @@ function module:KillAura(dis)
 	  end)
     end
   end
+end
+function module:CheckStatus(s)
+  if s == "Discontinued" then setclipboard("Discordlmao") p1:Kick("The Script Is Discontinued, Join Our Discord To know the problem")
+  elseif s == "Broken" then return
+  elseif s == "Detected" then return end
 end
 return module
