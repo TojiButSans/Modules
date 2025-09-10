@@ -3,14 +3,11 @@ local Utility = {}
 local plr = game.Players.LocalPlayer
 local regs = workspace.Regions
 -- functions
-function Utility:GetPlayerCountry()
-  local plr = game.Players.LocalPlayer
-end
 function Utility:GetAllTiles()
   local tiles = {}
   for _, v in pairs(regs:GetChildren()) do
     if v:IsA("Folder") then
-      if v:GetAttribute("Country", GetPlayerCountry)
+      if v:GetAttribute("Country", plr:GetAttribute("MyCountry"))
         table.insert(tiles, v)
       end
     end
