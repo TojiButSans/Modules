@@ -6,7 +6,7 @@ local regs = workspace:WaitForChild("Regions")
 
 -- Functions
 function Utility:FireRemote(REpath, REargs)
-  REpath::FireServer(unpack(REargs))
+  REpath:FireServer(unpack(REargs))
 end
 function Utility:GetAllTiles()
 	local tiles = {}
