@@ -20,11 +20,13 @@ function Utility:GetAllTiles()
 	return tiles
 end
 function Utility:GetMoney()
+  local cash
   for _, v in pairs(RS:GetDescendants()) do
     if v.Name == plr:GetAttribute("MyCountry") then
       cash = v.Money
 	end
   end
+  return cash
 end
 
 return Utility
